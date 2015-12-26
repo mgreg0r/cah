@@ -1,0 +1,72 @@
+#chatMessages {
+    margin:auto;
+    height:60%;
+    width:100%;
+    overflow:auto;
+}
+
+div#loginScreen {
+    margin:auto;
+    height:150px;
+    width:400px;
+    padding: 10px;
+    border: 5px solid black;
+}
+
+#nameInput {
+    margin:auto;
+    height:20%;
+    width:100%;
+}
+
+#enterLobby {
+    margin:auto;
+    height:40%;
+    width:100%;
+}
+
+#lobbyInputField {
+    width:100%;
+}
+
+#roomsListSpace {
+    height:50%;
+}
+
+#rlcpButtonCreate {
+    width:100%;
+}
+
+#rlcpLeaveLobbyButton {
+    width:100%;
+}
+
+.handArea {
+    width:100%;
+    height:50%;
+}
+
+#gameRowTop {
+    height:70%;
+}
+
+#handCardSubmit {
+    width:100%;
+}
+
+.roomChatMessages {
+    height:10%;
+}
+
+#startGameButton {
+    width:100%;
+}
+
+#leaveRoomButton {
+    width:100%;
+}
+
+#roomchatMessages {
+    height:15%;
+    overflow:auto;
+}

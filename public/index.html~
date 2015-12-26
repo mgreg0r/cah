@@ -1,0 +1,163 @@
+<head>
+  <title>CAH Vatican Edition</title>
+  <link rel="stylesheet" href="jquery-ui.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/jquery.ui.selectable.js"></script>
+  <script src="js/game.js"></script>
+  <link rel="stylesheet" type="text/css" href="semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="test.css">
+  <script src="semantic.min.js"></script>
+  <script src="ui.js"></script>
+</head>
+
+<body>
+  <div id="screen">
+    <div id="loginScreen">
+      <div class="ui large form">
+        <div class="field">
+          <label>Enter your nickname</label>
+          <input id="nameInput" placeholder="Nickname" type="text" maxlength="20"/>
+        </div>
+        <button class="ui primary button" id="enterLobby">Connect</button>
+      </div>
+    </div>
+    <div class="lobbyRoot" id="lobbyRoot">
+      <div class="ui internally celled grid">
+        <div class="row">
+          <div class="three wide column">
+            <div class="ui sizer vertical segment">
+              <div class = "ui huge header">Users online</div> 
+            </div>
+            <div class="ui segment">
+              <div id="lobbyUsersList">
+              </div>
+            </div>
+          </div>
+          <div class="ten wide column">
+            <div class="chatRoot">
+              <div class="chat">
+                <div class="ui segment">
+                  <div class="ui list" id="chatMessages">
+                  </div>
+                </div>
+                <div class="chatInput">
+                  <div id="lobbyInputField">
+                    <div class="ui fluid action input">
+                      <input id="chatMessage" type="text" placeholder="Message..." maxlength="200"/>
+                      <button class="ui blue button" id="chatSend">Send</button>
+                    </div>
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="three wide column">
+            <div class="roomsListRoot">
+              <div class="ui sizer vertical segment">
+                <div class = "ui huge header">Rooms</div> 
+              </div>
+              <div class="ui segment">
+                <div id="roomsListSpace">
+                  <div id="roomsList" class="ui middle aligned selection list">
+                  </div>
+                </div>
+              </div>
+              <div class="roomsListControlPanel">
+                <button class="ui primary button" id="rlcpButtonCreate">Create room</button>
+                <button class="ui primary button" id="rlcpLeaveLobbyButton">Disconnect</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gameRoot" id="gameRoot">
+      <div class="ui internally celled grid">
+          <div class="row">
+            <div class="six wide column">
+              <div class="ui segment">
+                <div class="handArea">
+                  <div class="ui fluid vertical menu">
+                    <div class="item">
+                      <div id="hand" class="menu">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="ui primary button" id="handCardSubmit">Submit</button>
+          </div>
+          <div class="ten wide column">
+            <div class="tableArea">
+              <div class="blackArea">
+              </div>
+              <div class="whiteArea">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="three wide column">
+            <div class="rankArea">
+              <div class="ui list" id="playersInRoom">
+              </div>
+            </div>
+          </div>
+          <div class="ten wide column">
+            <div class="chatArea">
+              <div class="ui segment">
+                <div class="ui list" id="roomchatMessages">
+                </div>
+              </div>
+              <div class="roomchatInput">
+                <div class="ui fluid action input">
+                  <input class="roomChatInput", id="roomChatInput", type="text" placeholder="Message..." maxlength="200"/>
+                  <div id="roomChatSend" class="ui blue button">Send</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="three wide column">
+            <div class="menuArea">
+              <button class="ui blue button" id="startGameButton">Start game</button>
+              <button class="ui blue button" id="leaveRoomButton">Leave room</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<div id="createRoomModal" class="ui basic modal">
+  <div class="header">Create room</div>
+  <div class="content">
+    <div class="ui fluid input">
+      <input id="rlcpName" type="text" placeholder="Room name" maxlength="20"/>
+      <button class="ui primary button" id="createRoomModalButton">Create room</button>
+    </div>
+  </div>
+</div>
+
+<div id="blankCardModal" class="ui basic modal">
+  <div class="header">Enter card text</div>
+  <div class="content">
+    <div class="ui fluid input">
+      <input id="blankTextInput" type="text" placeholder="Card text" maxlength="50"/>
+      <button class="ui primary button" id="blankModalButton">Submit</button>
+    </div>
+  </div>
+</div>
+
+<div id="startGameModal" class="ui basic modal">
+  <div class="header">Game settings</div>
+  <div class="content">
+    <div class="ui fluid action input">
+      <input class="gameRoundsInput" id="gameRoundsInput" type="number" placeholder="Points limit" maxlength="3"/>
+      <input class="gameBlanksInput" id="gameBlanksInput" type="number" placeholder="Blank chance %" maxlength="3"/>
+      <button class="ui primary button" id="startGameModalButton">Start game</button>
+    </div>
+  </div>
+</div>
